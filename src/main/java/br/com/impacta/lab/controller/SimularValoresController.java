@@ -46,42 +46,39 @@ public class SimularValoresController {
 
 		String produto = "";
 		double valor_base = 0;
-		double valor_final = 0;
-
-
+		
 
 		 if(codigoProduto == 1){
 			valor_base =  70.00;
-			valor_final =  70.00;
+			
 			produto = "Camisa";
 		 }else if(codigoProduto == 2){
 			valor_base =  57.50;
-			valor_final =  57.50;
+			
 			produto = "Shorts";
 		}else if(codigoProduto == 3){
 			valor_base =  9.99;
-			valor_final =  9.99;
+			
 			produto = "Meia";
 		}else if(codigoProduto == 4){
 			valor_base =  35.00;
-			valor_final = 35.00;
+			
 			produto = "Toca";
 		}else if(codigoProduto == 5){
 			valor_base =  19.50;
-			valor_final =  19.50;
+			
 			produto = "Luvas";
 		}
 
 		for(int i = 2021;i < ano; i++){
 
-			valor_final = valor_final + (valor_base * 0.05);
-
+			valor_base = valor_base * 1.05;
 			
 		}
 		
-	
+		valor_base = Math.round(valor_base * 100.0) /100.0;
 
-		return ResponseEntity.ok(produto + " custará " + valor_final + " reais em " + ano);
+		return ResponseEntity.ok(produto + " custará " + valor_base + " reais em " + ano);
 		
 		
 	
